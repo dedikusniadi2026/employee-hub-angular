@@ -8,24 +8,13 @@
   </div>
 
   <div class="actions">
-    <span class="user-name-text">{{ username }}</span>
-
-    <div class="profile-dropdown">
-      <button
-        mat-icon-button
-        class="profile-btn"
-        [matMenuTriggerFor]="profileMenu"
-        matTooltip="Account"
-      >
-        <img src="https://i.pravatar.cc/100" alt="avatar" class="avatar" />
-      </button>
-
-      <mat-menu #profileMenu="matMenu">
-        <button mat-menu-item (click)="logout()">
-          <app-lucide-icon name="log-out" [size]="18" />
-          <span>Logout</span>
-        </button>
-      </mat-menu>
+    <!-- GANTI YANG INI, DARI DROPDOWN JADI INFO DOANG -->
+    <div class="user-info">
+      <div class="user-text">
+        <span class="user-name">{{ username }}</span>
+        <span class="user-role">Administrator</span>
+      </div>
+      <img src="https://i.pravatar.cc/100" alt="avatar" class="avatar" />
     </div>
   </div>
 </header>
