@@ -8,8 +8,8 @@
 
       <div class="brand-message">
         <span class="eyebrow">EMPLOYEE DIRECTORY</span>
-        <h1>Find the employee details you need.</h1>
-        <p>Search the directory, review a profile, or update a record.</p>
+        <h1>Employee Directory</h1>
+        <p>Search, view, and manage employee data.</p>
       </div>
 
       <div class="brand-features">
@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <div class="brand-footer">© 2026 EmployeeHub.</div>
+      <div class="brand-footer">v1.0.0</div>
   </section>
 
   <section class="form-panel">
@@ -46,8 +46,8 @@
       </div>
 
       <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
-        <mat-form-field appearance="outline" class="field">
-          <mat-label>Username</mat-label>
+        <mat-form-field appearance="outline" class="field" hideRequiredMarker>
+          <mat-label>Username <span class="required">*</span></mat-label>
           <input matInput type="text" formControlName="username" autocomplete="username" />
 
           <mat-error *ngIf="submitted && loginForm.controls.username.invalid">
@@ -55,14 +55,22 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="field">
-          <mat-label>Password</mat-label>
+        <mat-form-field appearance="outline" class="field" hideRequiredMarker>
+          <mat-label>Password <span class="required">*</span></mat-label>
           <input
             matInput
-            type="password"
+            [type]="hidePassword ? 'password' : 'text'"
             formControlName="password"
-            autocomplete="current-password"
-          />
+            autocomplete="current-password"/>
+            <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="hidePassword ? 'Show password' : 'Hide password'"
+            class="toggle-btn">
+            <app-lucide-icon [name]="hidePassword ? 'eye-off' : 'eye'" [size]="18" />
+          </button>
 
           <mat-error *ngIf="submitted && loginForm.controls.password.invalid">
             Password wajib diisi
@@ -85,7 +93,6 @@
         <span>For authorized employee accounts</span>
       </div>
 
-      <div class="login-policy">By signing in, you agree to the internal usage policy.</div>
     </div>
   </section>
 </main>

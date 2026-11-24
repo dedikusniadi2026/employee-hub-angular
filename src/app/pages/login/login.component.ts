@@ -31,7 +31,8 @@ export class LoginComponent {
 
   submitted = false;
   errorMessage = '';
-
+  hidePassword = true;
+  
   loginForm = this.fb.group({
     username: ['', Validators.required],
     password: ['', Validators.required],

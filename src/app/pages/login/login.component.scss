@@ -219,6 +219,31 @@
   font-size: 11px;
 }
 
+.required {
+  color: #d92d20;
+  font-weight: 700;
+}
+
+.toggle-btn {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  flex-shrink: 0;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin-right: 4px;
+
+  app-lucide-icon {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+}
+
 @media (max-width: 900px) {
   .login-page {
     grid-template-columns: 38% 62%;
