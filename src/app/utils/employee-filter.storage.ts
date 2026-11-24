@@ -7,7 +7,7 @@ export interface EmployeeListFilter {
 
 const EMPTY_FILTER: EmployeeListFilter = {
   username: '',
-  email: ''
+  email: '',
 };
 
 export function loadEmployeeListFilter(): EmployeeListFilter {
@@ -24,7 +24,7 @@ export function loadEmployeeListFilter(): EmployeeListFilter {
     const parsed = JSON.parse(storedValue) as Partial<EmployeeListFilter>;
     return {
       username: parsed.username ?? '',
-      email: parsed.email ?? ''
+      email: parsed.email ?? '',
     };
   } catch {
     return { ...EMPTY_FILTER };

@@ -3,15 +3,13 @@ import { ToastrService } from 'ngx-toastr';
 
 import { Employee } from '../models/employee';
 
-const toastOptions = (
-  toastClass: string
-): Partial<IndividualConfig> => ({
+const toastOptions = (toastClass: string): Partial<IndividualConfig> => ({
   toastClass: `ngx-toastr ${toastClass}`,
   progressBar: true,
   closeButton: true,
   timeOut: 3200,
   extendedTimeOut: 1200,
-  tapToDismiss: true
+  tapToDismiss: true,
 });
 
 function employeeName(employee: Pick<Employee, 'firstName' | 'lastName'>): string {
@@ -20,33 +18,33 @@ function employeeName(employee: Pick<Employee, 'firstName' | 'lastName'>): strin
 
 export function showEmployeeAddedToast(
   toastr: ToastrService,
-  employee: Pick<Employee, 'firstName' | 'lastName'>
+  employee: Pick<Employee, 'firstName' | 'lastName'>,
 ): void {
   toastr.success(
     `${employeeName(employee)} berhasil ditambahkan ke daftar karyawan.`,
     'Karyawan Ditambahkan',
-    toastOptions('toast-add')
+    toastOptions('toast-add'),
   );
 }
 
 export function showEmployeeUpdatedToast(
   toastr: ToastrService,
-  employee: Pick<Employee, 'firstName' | 'lastName'>
+  employee: Pick<Employee, 'firstName' | 'lastName'>,
 ): void {
   toastr.success(
     `Perubahan data ${employeeName(employee)} berhasil disimpan.`,
     'Data Diperbarui',
-    toastOptions('toast-edit')
+    toastOptions('toast-edit'),
   );
 }
 
 export function showEmployeeDeletedToast(
   toastr: ToastrService,
-  employee: Pick<Employee, 'firstName' | 'lastName'>
+  employee: Pick<Employee, 'firstName' | 'lastName'>,
 ): void {
   toastr.success(
     `${employeeName(employee)} berhasil dihapus dari daftar karyawan.`,
     'Karyawan Dihapus',
-    toastOptions('toast-delete')
+    toastOptions('toast-delete'),
   );
 }

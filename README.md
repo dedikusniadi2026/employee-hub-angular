@@ -12,10 +12,10 @@ Mini backoffice aplikasi manajemen karyawan yang dibangun dengan **Angular 21** 
 
 ## Environment
 
-| Kebutuhan | Versi |
-|---|---|
-| Node.js | `^20.19.0` \| `^22.12.0` \| `>=24.0.0` (requirement Angular 21) |
-| npm | >= 10 |
+| Kebutuhan   | Versi                                                                 |
+| ----------- | --------------------------------------------------------------------- |
+| Node.js     | `^20.19.0` \| `^22.12.0` \| `>=24.0.0` (requirement Angular 21)       |
+| npm         | >= 10                                                                 |
 | Angular CLI | 21 (sudah tersedia sebagai devDependency, tidak perlu install global) |
 
 ## Cara Menjalankan
@@ -32,9 +32,9 @@ Buka browser ke `http://localhost:4200/`.
 
 ### Kredensial Login
 
-| Username | Password |
-|---|---|
-| `admin` | `admin123` |
+| Username | Password   |
+| -------- | ---------- |
+| `admin`  | `admin123` |
 
 ## Build Production
 

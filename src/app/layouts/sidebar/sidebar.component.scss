@@ -25,7 +25,10 @@
       margin: 0 auto;
       color: var(--primary);
 
-      .brand-icon { width: 24px; height: 24px; }
+      .brand-icon {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 }
@@ -51,7 +54,9 @@
   flex: 1;
   overflow: hidden;
   opacity: 1;
-  transition: opacity 0.2s, width 0.2s;
+  transition:
+    opacity 0.2s,
+    width 0.2s;
 
   &--hidden {
     opacity: 0;
@@ -63,7 +68,9 @@
 .collapse-btn {
   flex-shrink: 0;
   color: #b9c8da;
-  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), color 0.15s;
+  transition:
+    transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.15s;
 
   &:hover {
     color: var(--primary);
@@ -85,7 +92,10 @@
   overflow: hidden;
   opacity: 1;
   max-height: 50px;
-  transition: opacity 0.2s, max-height 0.2s, padding 0.2s;
+  transition:
+    opacity 0.2s,
+    max-height 0.2s,
+    padding 0.2s;
 
   &--hidden {
     opacity: 0;
@@ -149,7 +159,9 @@
 
     padding: 0;
     gap: 0;
-    .nav-icon { margin: 0; }
+    .nav-icon {
+      margin: 0;
+    }
   }
 }
 
@@ -193,7 +205,11 @@
   gap: 8px;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: background 0.2s, box-shadow 0.2s, padding 0.2s, min-width 0.2s;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s,
+    padding 0.2s,
+    min-width 0.2s;
   margin-top: 10px;
 
   .action-icon {

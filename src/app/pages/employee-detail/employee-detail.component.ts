@@ -13,7 +13,7 @@ import { APP_ROUTES } from '../../constants/employee.constants';
   standalone: true,
   imports: [CommonModule, MatButtonModule],
   templateUrl: './employee-detail.component.html',
-  styleUrls: ['./employee-detail.component.scss']
+  styleUrls: ['./employee-detail.component.scss'],
 })
 export class EmployeeDetailComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
@@ -42,7 +42,7 @@ export class EmployeeDetailComponent implements OnInit {
       style: 'currency',
       currency: 'IDR',
       minimumFractionDigits: 2,
-      maximumFractionDigits: 2
+      maximumFractionDigits: 2,
     })
       .format(amount)
       .replace('Rp', 'Rp.');

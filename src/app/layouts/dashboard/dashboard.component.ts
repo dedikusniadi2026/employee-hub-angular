@@ -11,24 +11,17 @@ import { TopbarComponent } from '../topbar/topbar.component';
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    MatSidenavModule,
-    SidebarComponent,
-    TopbarComponent
-  ],
+  imports: [RouterOutlet, MatSidenavModule, SidebarComponent, TopbarComponent],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
   private readonly breakpointObserver = inject(BreakpointObserver);
   private readonly router = inject(Router);
 
   readonly isMobile = toSignal(
-    this.breakpointObserver
-      .observe('(max-width: 640px)')
-      .pipe(map(result => result.matches)),
-    { initialValue: false }
+    this.breakpointObserver.observe('(max-width: 640px)').pipe(map((result) => result.matches)),
+    { initialValue: false },
   );
 
   sidebarCollapsed = false;
@@ -37,8 +30,8 @@ export class DashboardComponent {
   constructor() {
     this.router.events
       .pipe(
-        filter(event => event instanceof NavigationEnd),
-        takeUntilDestroyed()
+        filter((event) => event instanceof NavigationEnd),
+        takeUntilDestroyed(),
       )
       .subscribe(() => {
         this.mobileSidenavOpened = false;

@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  inject,
-  OnInit,
-  ViewChild
-} from '@angular/core';
+import { AfterViewInit, Component, inject, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -27,16 +21,13 @@ import { EditEmployeeComponent } from '../edit-employee/edit-employee.component'
 import {
   APP_ROUTES,
   DEFAULT_PAGE_SIZE,
-  PAGE_SIZE_OPTIONS
+  PAGE_SIZE_OPTIONS,
 } from '../../constants/employee.constants';
 import {
   loadEmployeeListFilter,
-  saveEmployeeListFilter
+  saveEmployeeListFilter,
 } from '../../utils/employee-filter.storage';
-import {
-  showEmployeeDeletedToast,
-  showEmployeeUpdatedToast
-} from '../../utils/employee-toast';
+import { showEmployeeDeletedToast, showEmployeeUpdatedToast } from '../../utils/employee-toast';
 import { LucideIconComponent } from '../../shared/lucide-icon.component';
 
 const EDIT_EMPLOYEE_DIALOG_ID = 'edit-employee-dialog';
@@ -55,10 +46,10 @@ const EDIT_EMPLOYEE_DIALOG_ID = 'edit-employee-dialog';
     MatFormFieldModule,
     MatSelectModule,
     MatTooltipModule,
-    LucideIconComponent
+    LucideIconComponent,
   ],
   templateUrl: './employee-list.component.html',
-  styleUrl: './employee-list.component.scss'
+  styleUrl: './employee-list.component.scss',
 })
 export class EmployeeListComponent implements OnInit, AfterViewInit {
   private readonly employeeService = inject(EmployeeService);
@@ -73,7 +64,7 @@ export class EmployeeListComponent implements OnInit, AfterViewInit {
     'email',
     'status',
     'group',
-    'action'
+    'action',
   ] as const;
 
   readonly pageSizeOptions = PAGE_SIZE_OPTIONS;
@@ -113,10 +104,10 @@ export class EmployeeListComponent implements OnInit, AfterViewInit {
       id: EDIT_EMPLOYEE_DIALOG_ID,
       width: '900px',
       disableClose: true,
-      data: { employee }
+      data: { employee },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (!result) {
         return;
       }
@@ -150,9 +141,9 @@ export class EmployeeListComponent implements OnInit, AfterViewInit {
         icon: 'delete-confirm-icon',
         actions: 'delete-confirm-actions',
         confirmButton: 'delete-confirm-button',
-        cancelButton: 'delete-cancel-button'
-      }
-    }).then(result => {
+        cancelButton: 'delete-cancel-button',
+      },
+    }).then((result) => {
       if (!result.isConfirmed) {
         return;
       }
@@ -166,12 +157,19 @@ export class EmployeeListComponent implements OnInit, AfterViewInit {
   applyFilter(): void {
     saveEmployeeListFilter({
       username: this.usernameFilter,
-      email: this.emailFilter
+      email: this.emailFilter,
     });
 
     this.dataSource.data = this.getFilteredEmployees();
     this.connectTableHelpers();
   }
+
+  clearFilters(): void {
+    this.usernameFilter = '';
+    this.emailFilter = '';
+    this.applyFilter();
+    this.paginator?.firstPage();
+}
 
   changePageSize(): void {
     if (!this.paginator) {
@@ -205,18 +203,14 @@ export class EmployeeListComponent implements OnInit, AfterViewInit {
   }
 
   private getFilteredEmployees(): Employee[] {
-    return this.employeeService
-      .getEmployees()
-      .filter(employee => this.matchesFilters(employee));
+    return this.employeeService.getEmployees().filter((employee) => this.matchesFilters(employee));
   }
 
   private matchesFilters(employee: Employee): boolean {
     const usernameQuery = this.usernameFilter.toLowerCase();
     const emailQuery = this.emailFilter.toLowerCase();
 
-    const usernameMatch = employee.username
-      .toLowerCase()
-      .includes(usernameQuery);
+    const usernameMatch = employee.username.toLowerCase().includes(usernameQuery);
     const emailMatch = employee.email.toLowerCase().includes(emailQuery);
 
     return usernameMatch && emailMatch;

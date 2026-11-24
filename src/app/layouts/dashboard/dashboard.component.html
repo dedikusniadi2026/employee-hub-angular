@@ -1,29 +1,25 @@
 <mat-sidenav-container class="layout">
-
   <mat-sidenav
     [mode]="isMobile() ? 'over' : 'side'"
     [opened]="isMobile() ? mobileSidenavOpened : true"
     [fixedInViewport]="true"
     [disableClose]="false"
     class="sidebar"
-    [class.sidebar--collapsed]="!isMobile() && sidebarCollapsed">
-
-    <app-sidebar
-      [collapsed]="!isMobile() && sidebarCollapsed"
-      (toggleCollapse)="onToggleSidebar()">
+    [class.sidebar--collapsed]="!isMobile() && sidebarCollapsed"
+  >
+    <app-sidebar [collapsed]="!isMobile() && sidebarCollapsed" (toggleCollapse)="onToggleSidebar()">
     </app-sidebar>
-
   </mat-sidenav>
 
   <mat-sidenav-content
-    [style.margin-left]="isMobile() ? '0px' : (sidebarCollapsed ? 'var(--sidebar-mini-w)' : 'var(--sidebar-w)')">
-
+    [style.margin-left]="
+      isMobile() ? '0px' : sidebarCollapsed ? 'var(--sidebar-mini-w)' : 'var(--sidebar-w)'
+    "
+  >
     <app-topbar (toggleDrawer)="onToggleSidebar()"></app-topbar>
 
     <div class="content">
       <router-outlet></router-outlet>
     </div>
-
   </mat-sidenav-content>
-
 </mat-sidenav-container>

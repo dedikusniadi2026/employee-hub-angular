@@ -8,7 +8,7 @@ export const EMPLOYEE_GROUPS = [
   'QA',
   'Security',
   'Legal',
-  'Operation'
+  'Operation',
 ] as const;
 
 export const EMPLOYEE_STATUSES = ['Active', 'Inactive'] as const;
@@ -22,7 +22,7 @@ export const EMPLOYEE_FILTER_STORAGE_KEY = 'employee-filter';
 export const APP_ROUTES = {
   employees: '/employees',
   addEmployee: '/employees/add',
-  employeeDetail: (id: number) => `/employees/${id}`
+  employeeDetail: (id: number) => `/employees/${id}`,
 } as const;
 
 export const DUMMY_EMPLOYEE_COUNT = 100;

@@ -2,7 +2,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private readonly USERNAME = 'admin';
@@ -78,4 +78,3 @@ export class AuthService {
     return storage.getItem(this.USER_KEY);
   }
 }
-

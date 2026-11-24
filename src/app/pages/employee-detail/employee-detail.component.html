@@ -19,14 +19,17 @@
           <h2 id="employee-name">{{ e.firstName }} {{ e.lastName }}</h2>
           <div class="profile-meta">
             <span class="identity-chip">&#64;{{ e.username }}</span>
-            <span class="employee-id">Employee ID <strong>#{{ e.id }}</strong></span>
+            <span class="employee-id"
+              >Employee ID <strong>#{{ e.id }}</strong></span
+            >
           </div>
         </div>
 
         <span
           class="status-badge"
           [class.status-badge--active]="e.status === 'Active'"
-          [class.status-badge--inactive]="e.status === 'Inactive'">
+          [class.status-badge--inactive]="e.status === 'Inactive'"
+        >
           <span class="status-dot"></span>
           {{ e.status }}
         </span>

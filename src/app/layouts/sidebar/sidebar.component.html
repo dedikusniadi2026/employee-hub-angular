@@ -1,5 +1,4 @@
 <div class="sidebar-header" [class.sidebar-header--collapsed]="collapsed">
-
   <ng-container *ngIf="!collapsed">
     <app-lucide-icon class="brand-icon" name="shield-check" [size]="30" />
     <span class="brand-name">EmployeeHub</span>
@@ -9,7 +8,8 @@
       (click)="toggle()"
       matTooltip="Collapse sidebar"
       matTooltipPosition="right"
-      aria-label="Collapse sidebar">
+      aria-label="Collapse sidebar"
+    >
       <app-lucide-icon class="control-icon" name="chevron-left" [size]="20" />
     </button>
   </ng-container>
@@ -21,11 +21,11 @@
       (click)="toggle()"
       matTooltip="Expand sidebar"
       matTooltipPosition="right"
-      aria-label="Expand sidebar">
+      aria-label="Expand sidebar"
+    >
       <app-lucide-icon class="brand-icon" name="shield-check" [size]="24" />
     </button>
   </ng-container>
-
 </div>
 
 <div class="nav-section-label" [class.nav-section-label--hidden]="collapsed">Main Menu</div>
@@ -39,7 +39,8 @@
       class="nav-item"
       [class.nav-item--collapsed]="collapsed"
       [matTooltip]="collapsed ? menu.title : ''"
-      matTooltipPosition="right">
+      matTooltipPosition="right"
+    >
       <app-lucide-icon class="nav-icon" name="users" [size]="21" />
       <span class="nav-title" [class.nav-title--hidden]="collapsed">{{ menu.title }}</span>
     </a>
@@ -53,7 +54,8 @@
     type="button"
     (click)="logout()"
     [matTooltip]="collapsed ? 'Logout' : ''"
-    matTooltipPosition="right">
+    matTooltipPosition="right"
+  >
     <app-lucide-icon class="action-icon" name="log-out" [size]="18" />
     <span class="logout-text" [class.logout-text--hidden]="collapsed">Logout</span>
   </button>

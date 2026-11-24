@@ -1,4 +1,4 @@
-@use "./styles/toast" as *;
+@use './styles/toast' as *;
 
 :root {
   --bg: #f4f7fb;
@@ -33,8 +33,16 @@ body {
 
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
-    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    'Apple Color Emoji',
+    'Segoe UI Emoji';
   background: var(--bg);
   color: var(--text);
 }
@@ -104,7 +112,10 @@ a {
   font: inherit;
   font-size: 14px;
   font-weight: 650;
-  transition: background-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+  transition:
+    background-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 140ms ease;
 }
 
 .delete-confirm-popup .delete-confirm-button {

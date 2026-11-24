@@ -9,16 +9,15 @@ import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
-
   {
     path: '',
     redirectTo: 'login',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
 
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
 
   {
@@ -29,26 +28,25 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         redirectTo: 'employees',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'employees',
-        component: EmployeeListComponent
+        component: EmployeeListComponent,
       },
       {
         path: 'employees/add',
-        component: AddEmployeeComponent
+        component: AddEmployeeComponent,
       },
       {
         path: 'employees/:id',
-        component: EmployeeDetailComponent
-      }
-    ]
+        component: EmployeeDetailComponent,
+      },
+    ],
   },
 
   {
     path: '**',
-    redirectTo: 'login'
-  }
-
+    redirectTo: 'login',
+  },
 ];

@@ -5,11 +5,11 @@ import { Employee } from '../models/employee';
 import {
   DUMMY_EMPLOYEE_COUNT,
   EMPLOYEE_GROUPS,
-  EMPLOYEE_STATUSES
+  EMPLOYEE_STATUSES,
 } from '../constants/employee.constants';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EmployeeService {
   private employees: Employee[] = [];
@@ -27,7 +27,7 @@ export class EmployeeService {
   }
 
   getEmployee(id: number): Employee | undefined {
-    return this.employees.find(employee => employee.id === id);
+    return this.employees.find((employee) => employee.id === id);
   }
 
   addEmployee(employee: Employee): void {
@@ -37,12 +37,12 @@ export class EmployeeService {
   }
 
   deleteEmployee(id: number): void {
-    this.employees = this.employees.filter(employee => employee.id !== id);
+    this.employees = this.employees.filter((employee) => employee.id !== id);
     this.publishChanges();
   }
 
   updateEmployee(employee: Employee): void {
-    const index = this.employees.findIndex(item => item.id === employee.id);
+    const index = this.employees.findIndex((item) => item.id === employee.id);
     if (index >= 0) {
       this.employees[index] = employee;
       this.publishChanges();
@@ -57,15 +57,11 @@ export class EmployeeService {
         firstName: `First${index}`,
         lastName: `Last${index}`,
         email: `user${index}@gmail.com`,
-        birthDate: new Date(
-          1990 + (index % 15),
-          index % 12,
-          (index % 28) + 1
-        ),
+        birthDate: new Date(1990 + (index % 15), index % 12, (index % 28) + 1),
         basicSalary: 5_000_000 + index * 250_000,
         status: EMPLOYEE_STATUSES[index % EMPLOYEE_STATUSES.length],
         group: EMPLOYEE_GROUPS[index % EMPLOYEE_GROUPS.length],
-        description: `Employee number ${index}`
+        description: `Employee number ${index}`,
       });
     }
 

@@ -18,16 +18,11 @@ import { EmployeeService } from '../../services/employee.service';
 
 import { OnlyNumberDirective } from '../../shared/only-number.directive';
 
-
-import {
-  APP_ROUTES,
-  EMPLOYEE_GROUPS,
-  EMPLOYEE_STATUSES
-} from '../../constants/employee.constants';
+import { APP_ROUTES, EMPLOYEE_GROUPS, EMPLOYEE_STATUSES } from '../../constants/employee.constants';
 import {
   requiredBasicSalaryValidators,
   requiredBirthDateValidators,
-  requiredEmailValidators
+  requiredEmailValidators,
 } from '../../validators/employee.validators';
 import { filterGroups } from '../../utils/group-filter.util';
 import { showEmployeeAddedToast } from '../../utils/employee-toast';
@@ -48,8 +43,8 @@ import { showEmployeeAddedToast } from '../../utils/employee-toast';
     MatNativeDateModule,
     MatCardModule,
     MatSelectModule,
-    MatOptionModule
-  ]
+    MatOptionModule,
+  ],
 })
 export class AddEmployeeComponent {
   private readonly formBuilder = inject(FormBuilder);
@@ -73,7 +68,7 @@ export class AddEmployeeComponent {
     basicSalary: [null as number | null, requiredBasicSalaryValidators],
     status: ['', Validators.required],
     group: ['', Validators.required],
-    description: ['', Validators.required]
+    description: ['', Validators.required],
   });
 
   onGroupSearch(searchText: string): void {
@@ -105,7 +100,7 @@ export class AddEmployeeComponent {
   }
 
   private buildEmployeePayload(
-    formValue: ReturnType<typeof this.form.getRawValue>
+    formValue: ReturnType<typeof this.form.getRawValue>,
   ): Omit<Employee, 'id'> {
     return {
       username: formValue.username!,
@@ -116,7 +111,7 @@ export class AddEmployeeComponent {
       basicSalary: Number(formValue.basicSalary),
       status: formValue.status!,
       group: formValue.group!,
-      description: formValue.description!
+      description: formValue.description!,
     };
   }
 }

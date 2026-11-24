@@ -7,41 +7,40 @@ import { LucideIconComponent } from '../../shared/lucide-icon.component';
 import { AuthService } from '../../services/auth';
 
 @Component({
-    selector: 'app-sidebar',
-    standalone: true,
-    imports: [
-        CommonModule,
-        RouterLink,
-        RouterLinkActive,
-        MatButtonModule,
-        MatTooltipModule,
-        LucideIconComponent
-    ],
-    templateUrl: './sidebar.component.html',
-    styleUrl: './sidebar.component.scss'
+  selector: 'app-sidebar',
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterLink,
+    RouterLinkActive,
+    MatButtonModule,
+    MatTooltipModule,
+    LucideIconComponent,
+  ],
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.scss',
 })
 export class SidebarComponent {
+  @Input() collapsed = false;
+  @Output() toggleCollapse = new EventEmitter<void>();
 
-    @Input() collapsed = false;
-    @Output() toggleCollapse = new EventEmitter<void>();
+  private auth = inject(AuthService);
+  private router = inject(Router);
 
-    private auth = inject(AuthService);
-    private router = inject(Router);
+  menus = [
+    {
+      icon: 'groups',
+      title: 'Staff',
+      link: '/employees',
+    },
+  ];
 
-    menus = [
-        {
-            icon: 'groups',
-            title: 'Staff',
-            link: '/employees'
-        },
-    ];
+  toggle(): void {
+    this.toggleCollapse.emit();
+  }
 
-    toggle(): void {
-        this.toggleCollapse.emit();
-    }
-
-    logout(): void {
-        this.auth.logout();
-        this.router.navigate(['/login']);
-    }
+  logout(): void {
+    this.auth.logout();
+    this.router.navigate(['/login']);
+  }
 }

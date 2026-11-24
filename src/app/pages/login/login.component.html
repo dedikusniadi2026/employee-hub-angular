@@ -1,9 +1,6 @@
-
 <main class="login-page">
-
   <section class="brand-panel">
     <div class="brand-content">
-
       <div class="brand-logo">
         <app-lucide-icon name="shield-check" [size]="34" />
         <span>EmployeeHub</span>
@@ -12,9 +9,7 @@
       <div class="brand-message">
         <span class="eyebrow">EMPLOYEE DIRECTORY</span>
         <h1>Find the employee details you need.</h1>
-        <p>
-          Search the directory, review a profile, or update a record.
-        </p>
+        <p>Search the directory, review a profile, or update a record.</p>
       </div>
 
       <div class="brand-features">
@@ -33,18 +28,13 @@
           <span>Quick search</span>
         </div>
       </div>
-
     </div>
 
-    <div class="brand-footer">
-      © 2026 EmployeeHub.
-    </div>
+    <div class="brand-footer">© 2026 EmployeeHub.</div>
   </section>
 
   <section class="form-panel">
-
     <div class="login-container">
-
       <div class="mobile-brand">
         <app-lucide-icon name="shield-check" [size]="30" />
         <span>EmployeeHub</span>
@@ -55,19 +45,10 @@
         <p>Enter your username and password to continue.</p>
       </div>
 
-      <form
-        [formGroup]="loginForm"
-        (ngSubmit)="login()"
-        class="login-form">
-
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
         <mat-form-field appearance="outline" class="field">
           <mat-label>Username</mat-label>
-          <input
-            matInput
-            type="text"
-            formControlName="username"
-            autocomplete="username"
-          />
+          <input matInput type="text" formControlName="username" autocomplete="username" />
 
           <mat-error *ngIf="submitted && loginForm.controls.username.invalid">
             Username wajib diisi
@@ -88,26 +69,15 @@
           </mat-error>
         </mat-form-field>
 
-        <div
-          *ngIf="errorMessage"
-          class="error-banner"
-          role="alert">
-
+        <div *ngIf="errorMessage" class="error-banner" role="alert">
           <app-lucide-icon name="circle-alert" [size]="19" />
           <span>{{ errorMessage }}</span>
         </div>
 
-        <button
-          mat-flat-button
-          color="primary"
-          class="login-button"
-          type="submit">
-
+        <button mat-flat-button color="primary" class="login-button" type="submit">
           Sign in
           <app-lucide-icon name="arrow-right" [size]="20" />
-
         </button>
-
       </form>
 
       <div class="security-note">
@@ -115,12 +85,7 @@
         <span>For authorized employee accounts</span>
       </div>
 
-      <div class="login-policy">
-        By signing in, you agree to the internal usage policy.
-      </div>
-
+      <div class="login-policy">By signing in, you agree to the internal usage policy.</div>
     </div>
-
   </section>
-
 </main>
