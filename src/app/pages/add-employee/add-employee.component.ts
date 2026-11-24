@@ -15,6 +15,10 @@ import { MatOptionModule } from '@angular/material/core';
 
 import { Employee } from '../../models/employee';
 import { EmployeeService } from '../../services/employee.service';
+
+import { OnlyNumberDirective } from '../../shared/only-number.directive';
+
+
 import {
   APP_ROUTES,
   EMPLOYEE_GROUPS,
@@ -37,6 +41,7 @@ import { showEmployeeAddedToast } from '../../utils/employee-toast';
     CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    OnlyNumberDirective,
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,

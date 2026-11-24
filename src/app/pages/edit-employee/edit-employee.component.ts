@@ -27,6 +27,8 @@ import {
   requiredEmailValidators
 } from '../../validators/employee.validators';
 import { filterGroups } from '../../utils/group-filter.util';
+import { OnlyNumberDirective } from '../../shared/only-number.directive';
+
 
 @Component({
   selector: 'app-edit-employee',
@@ -39,6 +41,7 @@ import { filterGroups } from '../../utils/group-filter.util';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    OnlyNumberDirective,
     MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
