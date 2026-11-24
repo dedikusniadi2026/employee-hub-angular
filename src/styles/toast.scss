@@ -1,14 +1,13 @@
-#toast-container.toast-center {
-  top: 50% !important;
-  left: 50% !important;
-  right: auto !important;
+#toast-container.toast-top-right {
+  top: 18px !important;
+  right: 18px !important;
+  left: auto !important;
   bottom: auto !important;
-  transform: translate(-50%, -50%) !important;
-  width: auto;
+  width: min(420px, calc(100vw - 36px));
   pointer-events: none;
 }
 
-#toast-container.toast-center .ngx-toastr {
+#toast-container.toast-top-right .ngx-toastr {
   width: min(420px, calc(100vw - 32px));
   margin: 0;
   padding: 18px 44px 18px 64px;
@@ -23,13 +22,13 @@
   overflow: hidden;
 }
 
-#toast-container.toast-center .ngx-toastr:hover {
+#toast-container.toast-top-right .ngx-toastr:hover {
   box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
   opacity: 1;
   cursor: default;
 }
 
-#toast-container.toast-center .ngx-toastr::before {
+#toast-container.toast-top-right .ngx-toastr::before {
   content: "";
   position: absolute;
   left: 18px;
@@ -43,20 +42,20 @@
   background-size: 16px;
 }
 
-#toast-container.toast-center .toast-title {
+#toast-container.toast-top-right .toast-title {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text, #0f172a);
   margin-bottom: 4px;
 }
 
-#toast-container.toast-center .toast-message {
+#toast-container.toast-top-right .toast-message {
   font-size: 0.875rem;
   line-height: 1.5;
   color: var(--muted, #64748b);
 }
 
-#toast-container.toast-center .toast-close-button {
+#toast-container.toast-top-right .toast-close-button {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -68,13 +67,13 @@
   font-weight: 400;
 }
 
-#toast-container.toast-center .toast-close-button:hover,
-#toast-container.toast-center .toast-close-button:focus {
+#toast-container.toast-top-right .toast-close-button:hover,
+#toast-container.toast-top-right .toast-close-button:focus {
   color: var(--text, #0f172a);
   opacity: 1;
 }
 
-#toast-container.toast-center .toast-progress {
+#toast-container.toast-top-right .toast-progress {
   height: 3px;
   opacity: 0.45;
 }
@@ -116,4 +115,16 @@
 
 .toast-delete .toast-progress {
   background-color: #ef4444 !important;
+}
+
+@media (max-width: 480px) {
+  #toast-container.toast-top-right {
+    top: 12px !important;
+    right: 12px !important;
+    width: calc(100vw - 24px);
+  }
+
+  #toast-container.toast-top-right .ngx-toastr {
+    width: 100%;
+  }
 }

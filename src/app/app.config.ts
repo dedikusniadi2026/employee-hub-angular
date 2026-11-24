@@ -14,7 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideNativeDateAdapter(),
     provideToastr({
-      positionClass: 'toast-center',
+      positionClass: 'toast-top-right',
       preventDuplicates: true,
       newestOnTop: true,
       progressBar: true,
