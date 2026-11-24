@@ -1,0 +1,275 @@
+.employee-detail-page {
+  width: min(100%, 1080px);
+  margin: 0 auto;
+  padding: 8px 0 28px;
+}
+
+.page-header {
+  margin-bottom: 22px;
+}
+
+.page-eyebrow,
+.profile-eyebrow {
+  color: #6b86a8;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 1.25px;
+}
+
+.page-title {
+  margin: 5px 0 4px;
+  color: #172b4d;
+  font-size: clamp(1.45rem, 2vw, 1.8rem);
+  font-weight: 750;
+  letter-spacing: -0.7px;
+}
+
+.page-subtitle {
+  margin: 0;
+  color: #718096;
+  font-size: 0.92rem;
+}
+
+.detail-card {
+  overflow: hidden;
+  border: 1px solid #e2eaf3;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(16, 37, 68, 0.055);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 26px 30px;
+  border-bottom: 1px solid #e8eef5;
+  background: linear-gradient(110deg, #f4f8fd 0%, #fff 82%);
+}
+
+.profile-avatar {
+  display: grid;
+  width: 62px;
+  height: 62px;
+  flex: 0 0 62px;
+  place-items: center;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: linear-gradient(140deg, #2459a6, #60a5fa);
+  box-shadow: 0 4px 12px rgba(36, 89, 166, 0.2);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+.profile-summary {
+  min-width: 0;
+  flex: 1;
+}
+
+.profile-summary h2 {
+  margin: 4px 0 8px;
+  color: #172b4d;
+  font-size: 1.35rem;
+  font-weight: 720;
+  letter-spacing: -0.35px;
+}
+
+.profile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.identity-chip,
+.employee-id {
+  display: inline-flex;
+  min-height: 26px;
+  align-items: center;
+  padding: 4px 9px;
+  border: 1px solid #e0e9f4;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.employee-id strong {
+  margin-left: 4px;
+  color: #314b6c;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.status-badge--active {
+  background: #e9f8ef;
+  color: #187449;
+}
+
+.status-badge--inactive {
+  background: #fff1f0;
+  color: #b42318;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.detail-body {
+  padding: 24px 30px 22px;
+}
+
+.section-heading {
+  margin-bottom: 18px;
+}
+
+.section-heading h3 {
+  margin: 0 0 3px;
+  color: #213a5b;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.section-heading p {
+  margin: 0;
+  color: #8a99ac;
+  font-size: 0.78rem;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px 18px;
+}
+
+.detail-field {
+  display: flex;
+  min-width: 0;
+  width: 100%;
+  flex-direction: column;
+  gap: 7px;
+  color: #718096;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.detail-field--full {
+  grid-column: 1 / -1;
+}
+
+.detail-field input[readonly],
+.detail-field textarea[readonly] {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid #dce5ef;
+  border-radius: 10px;
+  outline: none;
+  background: #fbfcfe;
+  color: #253c5b;
+  font-size: 0.9rem;
+  font-weight: 550;
+  cursor: text;
+}
+
+.detail-field textarea[readonly] {
+  min-height: 84px;
+  padding: 12px 14px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.detail-field input[readonly]:focus,
+.detail-field textarea[readonly]:focus {
+  border-color: #9bb8dc;
+  box-shadow: 0 0 0 3px rgba(36, 89, 166, 0.1);
+}
+
+.detail-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+  padding-top: 18px;
+  border-top: 1px solid #edf1f6;
+}
+
+.detail-actions button {
+  min-width: 104px;
+  min-height: 42px;
+  border-radius: 9px;
+  font-weight: 650;
+  box-shadow: none;
+}
+
+.not-found-card {
+  padding: 28px 30px;
+}
+
+.not-found-card h2 {
+  margin: 0 0 6px;
+  color: #172b4d;
+  font-size: 1.15rem;
+}
+
+.not-found-card p {
+  margin: 0;
+  color: #718096;
+}
+
+@media (max-width: 640px) {
+  .employee-detail-page {
+    padding: 0 0 20px;
+  }
+
+  .profile-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 20px;
+  }
+
+  .profile-summary {
+    flex-basis: calc(100% - 80px);
+  }
+
+  .profile-summary h2 {
+    font-size: 1.15rem;
+  }
+
+  .status-badge {
+    margin-left: 76px;
+    margin-top: -4px;
+  }
+
+  .detail-body {
+    padding: 20px 18px 18px;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .detail-field--full {
+    grid-column: auto;
+  }
+
+  .detail-actions button {
+    width: 100%;
+  }
+}

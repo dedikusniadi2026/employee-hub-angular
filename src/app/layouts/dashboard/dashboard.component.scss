@@ -1,0 +1,37 @@
+.layout {
+  height: 100vh;
+  background: var(--bg);
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--navy);
+  color: #fff;
+  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+
+  &--collapsed {
+    width: var(--sidebar-mini-w);
+  }
+}
+
+:host ::ng-deep .mat-drawer-content {
+  transition: margin-left 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+:host ::ng-deep .mat-drawer-container {
+  --mat-sidenav-content-background-color: transparent;
+}
+
+.content {
+  background: var(--bg);
+  min-height: calc(100vh - var(--topbar-h));
+  padding: 32px clamp(18px, 3vw, 42px);
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: 16px;
+  }
+}

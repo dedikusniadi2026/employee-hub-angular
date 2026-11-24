@@ -1,0 +1,236 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  height: var(--topbar-h);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px 0 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+
+  &--collapsed {
+    padding: 0;
+    justify-content: center;
+
+    .collapse-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      margin: 0 auto;
+      color: var(--primary);
+
+      .brand-icon { width: 24px; height: 24px; }
+    }
+  }
+}
+
+.brand-icon {
+  color: #60a5fa;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.control-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: 750;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+  flex: 1;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.2s, width 0.2s;
+
+  &--hidden {
+    opacity: 0;
+    width: 0;
+    pointer-events: none;
+  }
+}
+
+.collapse-btn {
+  flex-shrink: 0;
+  color: #b9c8da;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), color 0.15s;
+
+  &:hover {
+    color: var(--primary);
+  }
+
+  &--rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.nav-section-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #9fb1c8;
+  padding: 20px 20px 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 1;
+  max-height: 50px;
+  transition: opacity 0.2s, max-height 0.2s, padding 0.2s;
+
+  &--hidden {
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    pointer-events: none;
+  }
+}
+
+.nav-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.nav-item {
+  min-height: 46px;
+  margin: 3px 10px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 10px;
+  transition: all 0.15s ease;
+  color: #d5dfeb !important;
+  overflow: hidden;
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+  }
+
+  &.active-link {
+    background: rgba(96, 165, 250, 0.17) !important;
+    color: #ffffff !important;
+
+    .nav-icon {
+      color: #93bdf4;
+    }
+  }
+
+  .nav-icon {
+    color: #a9bbd1;
+    width: 21px;
+    height: 21px;
+    flex-shrink: 0;
+  }
+
+  &--collapsed {
+    margin: 2px auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    gap: 0;
+    .nav-icon { margin: 0; }
+  }
+}
+
+.nav-title {
+  color: inherit;
+  font-size: 0.9rem;
+  font-weight: 550;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.15s;
+
+  &--hidden {
+    opacity: 0;
+    width: 0;
+    pointer-events: none;
+  }
+}
+
+.sidebar-footer {
+  padding: 0 20px 24px;
+  flex-shrink: 0;
+  transition: padding 0.28s;
+
+  &--collapsed {
+    padding: 0 10px 24px;
+  }
+}
+
+.logout-btn {
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffd1d1;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background 0.2s, box-shadow 0.2s, padding 0.2s, min-width 0.2s;
+  margin-top: 10px;
+
+  .action-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: rgba(239, 68, 68, 0.16);
+    border-color: rgba(255, 255, 255, 0.24);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  &--collapsed {
+    width: 44px;
+    height: 44px;
+    min-width: unset;
+    border-radius: 10px;
+    padding: 0;
+    margin: 10px auto 0;
+
+    .logout-text {
+      display: none;
+    }
+  }
+}
+
+.logout-text {
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.15s;
+
+  &--hidden {
+    opacity: 0;
+    width: 0;
+    pointer-events: none;
+  }
+}

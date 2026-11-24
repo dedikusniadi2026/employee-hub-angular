@@ -1,0 +1,108 @@
+<main class="employee-detail-page">
+  <header class="page-header">
+    <div>
+      <span class="page-eyebrow">PEOPLE DIRECTORY</span>
+      <h1 class="page-title">Employee detail</h1>
+      <p class="page-subtitle">Employee information and account details</p>
+    </div>
+  </header>
+
+  <ng-container *ngIf="employee as e; else notFound">
+    <section class="detail-card" aria-labelledby="employee-name">
+      <div class="profile-header">
+        <div class="profile-avatar" aria-hidden="true">
+          {{ e.firstName.charAt(0) }}{{ e.lastName.charAt(0) }}
+        </div>
+
+        <div class="profile-summary">
+          <span class="profile-eyebrow">EMPLOYEE PROFILE</span>
+          <h2 id="employee-name">{{ e.firstName }} {{ e.lastName }}</h2>
+          <div class="profile-meta">
+            <span class="identity-chip">&#64;{{ e.username }}</span>
+            <span class="employee-id">Employee ID <strong>#{{ e.id }}</strong></span>
+          </div>
+        </div>
+
+        <span
+          class="status-badge"
+          [class.status-badge--active]="e.status === 'Active'"
+          [class.status-badge--inactive]="e.status === 'Inactive'">
+          <span class="status-dot"></span>
+          {{ e.status }}
+        </span>
+      </div>
+
+      <div class="detail-body">
+        <div class="section-heading">
+          <h3>Personal information</h3>
+          <p>Read-only employee record</p>
+        </div>
+
+        <div class="detail-grid">
+          <label class="detail-field">
+            <span>Username</span>
+            <input readonly [value]="e.username" />
+          </label>
+
+          <label class="detail-field">
+            <span>First name</span>
+            <input readonly [value]="e.firstName" />
+          </label>
+
+          <label class="detail-field">
+            <span>Last name</span>
+            <input readonly [value]="e.lastName" />
+          </label>
+
+          <label class="detail-field">
+            <span>Email</span>
+            <input readonly [value]="e.email" />
+          </label>
+
+          <label class="detail-field">
+            <span>Birth date</span>
+            <input readonly [value]="e.birthDate | date: 'longDate'" />
+          </label>
+
+          <label class="detail-field">
+            <span>Basic salary</span>
+            <input readonly [value]="formatBasicSalary(e.basicSalary)" />
+          </label>
+
+          <label class="detail-field">
+            <span>Status</span>
+            <input readonly [value]="e.status" />
+          </label>
+
+          <label class="detail-field">
+            <span>Group</span>
+            <input readonly [value]="e.group" />
+          </label>
+
+          <label class="detail-field detail-field--full">
+            <span>Description</span>
+            <textarea readonly rows="3" [value]="e.description"></textarea>
+          </label>
+        </div>
+
+        <div class="detail-actions">
+          <button mat-raised-button color="primary" type="button" (click)="backToEmployeeList()">
+            OK
+          </button>
+        </div>
+      </div>
+    </section>
+  </ng-container>
+
+  <ng-template #notFound>
+    <section class="detail-card not-found-card">
+      <h2>Employee not found</h2>
+      <p>The employee record may have been removed or the link is invalid.</p>
+      <div class="detail-actions">
+        <button mat-raised-button color="primary" type="button" (click)="backToEmployeeList()">
+          OK
+        </button>
+      </div>
+    </section>
+  </ng-template>
+</main>
